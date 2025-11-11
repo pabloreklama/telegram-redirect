@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Открытие Telegram</title>
+    <title>Telegram Channel</title>
     <script>
-        // Сначала пытаемся открыть в приложении
-        window.location.href = 'tg://resolve?domain=+2CCsrg9esYw0M2Q6';
+        // Определяем мобильное устройство
+        function isMobile() {
+            return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
         
-        // Если приложение не установлено, через 0.5 сек открываем web.telegram
+        // Прямой редирект для мобильных
+        if (isMobile()) {
+            window.location.href = 'tg://resolve?domain=+2CCsrg9esYw0M2Q6';
+        }
+        
+        // Запасной вариант через 1 секунду
         setTimeout(function() {
-            window.location.href = 'https://web.telegram.org/';
-        }, 500);
+            if (!isMobile()) {
+                window.location.href = 'https://web.telegram.org/';
+            }
+        }, 1000);
     </script>
 </head>
-<body style="background: #000; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: Arial;">
+<body style="background: #0088cc; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: Arial;">
     <div style="text-align: center;">
-        <h2>📱 Открываем Telegram...</h2>
-        <p>Если Telegram не открылся автоматически, <a href="tg://resolve?domain=+2CCsrg9esYw0M2Q6" style="color: #0088cc;">нажмите сюда</a></p>
+        <h2>🚀 Открываем ваш канал...</h2>
+        <p>Если редирект не сработал, <a href="tg://resolve?domain=+FGc_N_wbs2hiNDMy" style="color: white; text-decoration: underline;">нажмите здесь</a></p>
     </div>
 </body>
 </html>
